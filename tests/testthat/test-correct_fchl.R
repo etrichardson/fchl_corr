@@ -1,5 +1,5 @@
 # Run all tests in this script:
-testthat::test_file(file.path("tests", "testthat", "test_correct_fchl.R"))
+## testthat::test_file(file.path("tests", "testthat", "test-correct_fchl.R"))
 
 # Error testing
 test_that("Errors work as desired", {

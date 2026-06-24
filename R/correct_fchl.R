@@ -19,18 +19,18 @@ correct_fchl <- function(raw_fchl = NULL, temp_c = NULL,
 
   # Error checks here
 
+
   # Warnings here
 
 
   # Actual correction code
-  library(dplyr)
   if(instr == "EXO2"){
     corr.temp_fchl <- raw_fchl / (1 + (0.01 * (temp_c - 25)))
     corr.instr_fchl <- (1.29 * corr.temp_fchl) + 0.33
   } 
   else if (instr == "FP"){
     corr.instr_fchl <- raw_fchl %>% 
-  mutate(raw_fchl = case_when(
+    dplyr::mutate(raw_fchl = dplyr::case_when(
     raw_fchl < 16 ~ 0.39*raw_fchl+0.33,
     raw_fchl >= 16 ~ 0.71*raw_fchl-4.66))  
   }
@@ -43,8 +43,4 @@ correct_fchl <- function(raw_fchl = NULL, temp_c = NULL,
   }
   # Return corrected fChl
   return(corr.instr_fchl)
-
-
 }
-
-
