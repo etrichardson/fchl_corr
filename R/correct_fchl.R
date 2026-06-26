@@ -23,6 +23,15 @@
 #' # Assuming that these data are produced by the YSI EXO2 and have not already been temperature corrected:
 #' # test_df <- test_df %>% mutate(corr_chl = correct_fchl(fchl = raw_chl, instr = "EXO2", skip_tcorr = FALSE, temp = temp_c))
 #' 
+#' # Returns the following dataframe:
+#' 
+#' #> test_df 
+#' #  raw_chl temp_c corr_chl
+#' #1    4.56   23.0     6.33
+#' #2    5.01   24.1     6.85
+#' #3    6.21     NA       NA
+#' #4      NA   25.3       NA
+#' #5   43.95     NA       NA
 
 correct_fchl <- function(fchl = NULL, instr = NULL, 
   skip_tcorr = FALSE, temp = NULL){

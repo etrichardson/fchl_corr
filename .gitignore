@@ -50,3 +50,6 @@ rsconnect/
 
 /.quarto/
 **/*.quarto_ipynb
+
+# Testing playground
+testing_playground.R
