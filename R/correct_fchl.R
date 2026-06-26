@@ -13,14 +13,15 @@
 #' @importFrom magrittr %>%
 #' 
 #' @examples
+#' # library(dplyr)
 #' # Example raw chlorophyll fluorescence and temperature vectors
-#' #raw_chl<- c(4.56, 5.01, 6.21, NA, 43.95)
-#' #temp_c <- c(23.0, 24.1, NA, 25.3, NA)
+#' # raw_chl<- c(4.56, 5.01, 6.21, NA, 43.95)
+#' # temp_c <- c(23.0, 24.1, NA, 25.3, NA)
 #' 
-#' #test_df <- cbind(raw_chl, temp_c)
+#' # test_df <- cbind(raw_chl, temp_c)
 #' 
 #' # Assuming that these data are produced by the YSI EXO2 and have not already been temperature corrected:
-#' #test_df <- test_df %>% mutate(corr_chl = correct_fchl(fchl = raw_chl, instr = "EXO2", skip_tcorr = FALSE, temp = temp_c))
+#' # test_df <- test_df %>% mutate(corr_chl = correct_fchl(fchl = raw_chl, instr = "EXO2", skip_tcorr = FALSE, temp = temp_c))
 #' 
 
 correct_fchl <- function(fchl = NULL, instr = NULL, 
@@ -74,5 +75,5 @@ if(skip_tcorr == FALSE & instr != "FP"){
   }
 
   # Return corrected fChl
-  return(corr.instr_fchl)
+  return(round(corr.instr_fchl, 2))
 }
